@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SpringBajo8Application {
 
 	@Bean
-	public Docket productsApi(){
+	public Docket citasApi(){
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
 				.apis(RequestHandlerSelectors.any())

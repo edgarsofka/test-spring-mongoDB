@@ -1,9 +1,7 @@
 package com.springBajo8.springBajo8.controllers;
 
-import com.springBajo8.springBajo8.models.ProductDTO;
-import com.springBajo8.springBajo8.repositories.IProductDAO;
-import com.springBajo8.springBajo8.models.ProductDTO;
-import com.springBajo8.springBajo8.repositories.IProductDAO;
+import com.springBajo8.springBajo8.models.CitasDTO;
+import com.springBajo8.springBajo8.repositories.ICitasDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -13,29 +11,29 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*", methods = { RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT,
 		RequestMethod.DELETE })
-@RequestMapping("/api/products")
-public class ProductController {
+@RequestMapping("/api/citas")
+public class CitasController {
 
 	@Autowired
-	private IProductDAO repository;
+	private ICitasDAO repository;
 
-	@PostMapping("/product")
-	public ProductDTO create(@Validated @RequestBody ProductDTO p) {
+	@PostMapping("/citas")
+	public CitasDTO create(@Validated @RequestBody CitasDTO p) {
 		return repository.insert(p);
 	}
 
 	@GetMapping("/")
-	public List<ProductDTO> readAll() {
+	public List<CitasDTO> readAll() {
 		return repository.findAll();
 	}
 
-	@PutMapping("/product/{id}")
-	public ProductDTO update(@PathVariable String id, @Validated @RequestBody ProductDTO p) {
+	@PutMapping("/citas/{id}")
+	public CitasDTO update(@PathVariable String id, @Validated @RequestBody CitasDTO p) {
 		return repository.save(p);
 
 	}
 
-	@DeleteMapping("/product/{id}")
+	@DeleteMapping("/citas/{id}")
 	public void delete(@PathVariable String id) {
 		repository.deleteById(id);
 	}
